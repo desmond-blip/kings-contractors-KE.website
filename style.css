@@ -1,26 +1,24 @@
+/* Reset & Base */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  body {
-  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  color: #fff;
-  background: url('back.jpg') no-repeat center center fixed;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Background */
+body {
+  background: url('zeva.jpg') no-repeat center center fixed;
   background-size: cover;
+  background-color: #f0f4f8;
 }
 
-header {
-  background-color: rgba(0, 0, 0, 0.8);
+/* General Containers */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
   padding: 20px 0;
-}
-
-.header-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 /* Container aligned to the right side of the page */
 .engineer-info-box {
@@ -84,139 +82,164 @@ header {
   text-decoration: underline;
 }
 
-header h1 {
-  font-size: 24px;
-  margin: 0;
-  color: #f9a825;
+/* Header */
+header {
+  background-color: #8B4513; /* Brown */
+  padding: 20px 0;
 }
 
+header h1 {
+  color: #FFD700; /* Gold */
+  font-size: 2rem;
+  text-align: center;
+}
+
+/* Navigation */
 nav ul {
   list-style: none;
   display: flex;
-  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
 }
 
 nav a {
-  text-decoration: none;
-  color: #ffffff;
-  font-weight: bold;
-}
-
-.hero {
-  text-align: center;
-  padding: 100px 20px;
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
-.hero h2 {
-  font-size: 36px;
-  color: #f9a825;
-}
-
-.hero p {
-  font-size: 18px;
-  margin: 20px 0;
-}
-
-.hero a {
-  background-color: #f9a825;
-  color: #000;
-  padding: 10px 20px;
+  color: #FFD700; /* Gold */
   text-decoration: none;
   font-weight: bold;
-  border-radius: 5px;
-}
-
-.services {
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 60px 20px;
-  text-align: center;
-}
-
-.services h3 {
-  font-size: 28px;
-  margin-bottom: 40px;
-  color: #f9a825;
-}
-
-.cards {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-.card {
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 20px;
-  border-radius: 10px;
-  width: 220px;
-}
-
-.card h4 {
-  font-size: 20px;
-  margin-bottom: 10px;
-  color: #f9a825;
-}
-
-footer {
-  background-color: rgba(0, 0, 0, 0.9);
-  padding: 20px 0;
-  text-align: center;
-  color: #ccc;
-}
-
-
-/* Get Started Section */
-.get-started {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-              url('https://images.unsplash.com/photo-1581090700227-1f9b9efb9bff?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
-  color: #fff;
-  text-align: center;
-  padding: 100px 20px;
-}
-
-.get-started .container {
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.get-started h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
-}
-
-.get-started p {
-  font-size: 1.2rem;
-  margin-bottom: 40px;
-  line-height: 1.5;
-}
-
-.btn-primary {
-  background-color: #f1c40f;
-  color: #000;
-  padding: 15px 30px;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 8px;
+  padding: 8px 12px;
+  border-radius: 4px;
   transition: background 0.3s ease;
 }
 
-.btn-primary:hover {
-  background-color: #d4ac0d;
+nav a:hover {
+  background-color: #B2FFFF; /* Celeste */
+  color: #8B4513; /* Brown */
 }
 
-/* Responsive Design */
-@media (max-width: 600px) {
-  .get-started h1 {
-    font-size: 2rem;
-  }
+/* Hero Section */
+.hero {
+  padding: 60px 0;
+  text-align: center;
+  
+  color: white;
+}
 
-  .get-started p {
-    font-size: 1rem;
-  }
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #FFD700;
+}
 
-  .btn-primary {
-    padding: 12px 24px;
-  }
+.hero p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+/* Button */
+.btn,
+button {
+  display: inline-block;
+  padding: 10px 25px;
+  background: #B2FFFF; /* Celeste */
+  color: #8B4513; /* Brown */
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover,
+.btn:hover {
+  background-color: #FFD700; /* Gold */
+  color: #8B4513;
+}
+
+/* Services */
+.services {
+  padding: 40px 0;
+}
+
+.services h3 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #8B4513;
+}
+
+/* Cards */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  background: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 250px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.card h4 {
+  margin-bottom: 10px;
+  color: #8B4513;
+}
+
+/* Footer */
+footer {
+  background-color:brown;
+  color: fuchsia;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 40px;
+}
+
+/* Contact Form Styling */
+.contact-container h1 {
+  color: #8B4513;
+}
+
+.contact-form label {
+  font-weight: bold;
+  color: #8B4513;
+}
+
+.contact-form input,
+.contact-form textarea,
+input, select, textarea {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px;
+  width: 100%;
+}
+
+.contact-form button,
+form button {
+  background-color: #B2FFFF;
+  color: #8B4513;
+}
+
+.contact-form button:hover,
+form button:hover {
+  background-color: #FFD700;
+  color: #8B4513;
+}
+
+/* Additional Styles */
+.engineer-photo-wrapper {
+  width: 120px;
+  height: 120px;
+}
+
+.engineer-overlay {
+  background: rgba(139, 69, 19, 0.7); /* Brown overlay */
+}
+
+.engineer-contact a {
+  color: #FFD700;
 }

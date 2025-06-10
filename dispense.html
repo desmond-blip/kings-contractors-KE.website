@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chemist Dispensing System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background-color: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #34495e;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    .button {
+      margin-top: 20px;
+      padding: 12px;
+      background-color: #2ecc71;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .button:hover {
+      background-color: #27ae60;
+    }
+
+    .summary {
+      background-color: #ecf0f1;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 20px;
+      display: none;
+    }
+
+    .total {
+      font-size: 18px;
+      font-weight: bold;
+      color: #e74c3c;
+    }
+
+    @media print {
+      body * {
+        visibility: hidden;
+      }
+      .summary, .summary * {
+        visibility: visible;
+      }
+      .summary {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Chemist Drug Dispensing</h1>
+    <form id="dispenseForm" action="submit.php" method="POST" onsubmit="return handleSubmit()">
+      <label for="description">Doctor's Description:</label>
+      <textarea id="description" name="description" required></textarea>
+
+      <label for="diagnosis">Diagnosis:</label>
+      <textarea id="diagnosis" name="diagnosis" required></textarea>
+
+      <label for="prescriptions">Drugs Prescribed:</label>
+      <textarea id="prescriptions" name="prescriptions" required></textarea>
+
+      <label for="injections">Injections (if any):</label>
+      <textarea id="injections" name="injections"></textarea>
+
+      <label for="consultationFee">Consultation Fee:</label>
+      <input type="number" name="consultationFee" id="consultationFee" required/>
+
+      <label for="medicationCost">Medication Cost:</label>
+      <input type="number" name="medicationCost" id="medicationCost" required/>
+
+      <button class="button" type="submit">Save & Print</button>
+    </form>
+
+    <div id="report" class="summary">
+      <h3>Patient Summary Report</h3>
+      <p><strong>Doctor's Description:</strong> <span id="r_description"></span></p>
+      <p><strong>Diagnosis:</strong> <span id="r_diagnosis"></span></p>
+      <p><strong>Prescribed Drugs:</strong> <span id="r_prescriptions"></span></p>
+      <p><strong>Injections:</strong> <span id="r_injections"></span></p>
+      <p><strong>Consultation Fee:</strong> Ksh. <span id="r_consultationFee"></span></p>
+      <p><strong>Medication Cost:</strong> Ksh. <span id="r_medicationCost"></span></p>
+      <p class="total">Total to Pay: Ksh. <span id="r_total"></span></p>
+    </div>
+  </div>
+
+  <script>
+    function handleSubmit() {
+      const description = document.getElementById('description').value;
+      const diagnosis = document.getElementById('diagnosis').value;
+      const prescriptions = document.getElementById('prescriptions').value;
+      const injections = document.getElementById('injections').value || "None";
+      const consultationFee = parseFloat(document.getElementById('consultationFee').value) || 0;
+      const medicationCost = parseFloat(document.getElementById('medicationCost').value) || 0;
+      const total = consultationFee + medicationCost;
+
+      document.getElementById('r_description').innerText = description;
+      document.getElementById('r_diagnosis').innerText = diagnosis;
+      document.getElementById('r_prescriptions').innerText = prescriptions;
+      document.getElementById('r_injections').innerText = injections;
+      document.getElementById('r_consultationFee').innerText = consultationFee.toFixed(2);
+      document.getElementById('r_medicationCost').innerText = medicationCost.toFixed(2);
+      document.getElementById('r_total').innerText = total.toFixed(2);
+
+      document.getElementById('report').style.display = 'block';
+
+      setTimeout(() => {
+        window.print();
+        document.getElementById('dispenseForm').submit();
+      }, 500);
+
+      return false;
+    }
+  </script>
+</body>
+</html>

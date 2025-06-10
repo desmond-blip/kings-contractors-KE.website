@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Zeva Patient Management</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background-color: #f4f4f4;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    table {
+      width: 100%;
+      max-width: 800px;
+      margin: 30px auto;
+      border-collapse: collapse;
+      background-color: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    th, td {
+      padding: 15px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+
+    th {
+      background-color: #3498db;
+      color: white;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    .add-button {
+      display: block;
+      width: fit-content;
+      margin: 0 auto;
+      padding: 10px 20px;
+      background-color: #2ecc71;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      text-align: center;
+      transition: background-color 0.3s;
+    }
+
+    .add-button:hover {
+      background-color: #27ae60;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Zeva Patient Management</h1>
+
+  <a href="add.html" class="add-button">+ Add New Patient</a>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Patient ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Diagnosis</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>001</td>
+        <td>John Doe</td>
+        <td>45</td>
+        <td>Diabetes</td>
+      </tr>
+      <tr>
+        <td>002</td>
+        <td>Jane Smith</td>
+        <td>32</td>
+        <td>Hypertension</td>
+      </tr>
+      <tr>
+        <td>003</td>
+        <td>Samuel Lee</td>
+        <td>27</td>
+        <td>Asthma</td>
+      </tr>
+      <tr>
+        <td>004</td>
+        <td>Maria Garcia</td>
+        <td>54</td>
+        <td>Arthritis</td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+</html>

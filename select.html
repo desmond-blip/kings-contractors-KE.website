@@ -1,0 +1,121 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lab Test Request</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7f8;
+      color: #333;
+      padding: 20px;
+    }
+
+    .form-container {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    textarea {
+      resize: vertical;
+      height: 100px;
+    }
+
+    .btn {
+      margin-top: 20px;
+      background-color: #007BFF;
+      color: white;
+      padding: 12px;
+      border: none;
+      width: 100%;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+
+    .section-divider {
+      margin-top: 30px;
+      border-top: 1px solid #ccc;
+      padding-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Patient Test Request to Lab</h2>
+    <form onsubmit="return sendEmail();">
+      <label for="patientName">Patient Name</label>
+      <input type="text" id="patientName" name="patientName" required>
+
+      <label for="patientID">Patient ID</label>
+      <input type="text" id="patientID" name="patientID" required>
+
+      <label for="sicknessDescription">Sickness Description</label>
+      <textarea id="sicknessDescription" name="sicknessDescription" required></textarea>
+
+      <label for="testRequired">Test Required</label>
+      <input type="text" id="testRequired" name="testRequired" required>
+
+      <label for="doctorNotes">Doctor's Notes</label>
+      <textarea id="doctorNotes" name="doctorNotes"></textarea>
+
+      <div class="section-divider">
+        <h3>Lab Response</h3>
+        <label for="labResponse">Response / Action</label>
+        <textarea id="labResponse" name="labResponse" placeholder="Lab will fill this section after processing"></textarea>
+      </div>
+
+      <button type="submit" class="btn">Send to Lab</button>
+    </form>
+  </div>
+
+  <script>
+  function sendResultToDoctor() {
+    const doctorEmail = "mabukadesmond.com"; // Replace with the actual doctor's email
+    const patientName = document.getElementById("patientName").value;
+    const patientID = document.getElementById("patientID").value;
+    const testRequired = document.getElementById("testRequired").value;
+    const labResponse = document.getElementById("labResponse").value;
+
+    const subject = encodeURIComponent("Lab Test Result for Patient: " + patientName);
+    const body = encodeURIComponent(
+      "Patient Name: " + patientName + "\n" +
+      "Patient ID: " + patientID + "\n" +
+      "Test: " + testRequired + "\n\n" +
+      "Lab Result:\n" + labResponse
+    );
+
+    window.location.href = `mailto:${doctorEmail}?subject=${subject}&body=${body}`;
+  }
+</script>
+
+</body>
+</html>
